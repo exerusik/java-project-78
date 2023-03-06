@@ -9,7 +9,7 @@ public class SchemaBase {
 
     List<Predicate> validList = new ArrayList<>();
 
-    public boolean isRequired = false;
+    private boolean isRequired = false;
 
     public void addValid(Predicate predicate) {
         validList.add(predicate);
@@ -17,9 +17,9 @@ public class SchemaBase {
     }
 
     public boolean isValid(Object object) {
-        if(!isRequired && (object == null || object.equals(""))) {
+        if(!isRequired && (object == null || object.toString().isEmpty())) {
             return  true;
-        } else if (isRequired && (object == null || object.equals(""))){
+        } else if (isRequired && (object == null || object.toString().isEmpty())){
             return false;
         }
         for (Predicate predicate : validList) {
@@ -30,7 +30,7 @@ public class SchemaBase {
         return true;
     }
 
-
-
-
+    public void setRequired(boolean required) {
+        isRequired = required;
+    }
 }

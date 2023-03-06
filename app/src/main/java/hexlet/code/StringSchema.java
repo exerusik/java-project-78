@@ -6,11 +6,11 @@ import java.util.function.Predicate;
 public class StringSchema extends SchemaBase{
 
     public StringSchema(){
-        addValid(p -> p instanceof String && !validList.isEmpty());
+        addValid(p -> p instanceof String);
     }
 
     public StringSchema required () {
-        isRequired = true;
+        setRequired(true);
         return this;
     }
 
