@@ -6,16 +6,16 @@ import java.util.function.Predicate;
 
 public class BaseSchema {
 
-    List<Predicate> validList = new ArrayList<>();
+    private List<Predicate> validList = new ArrayList<>();
 
     private boolean isRequired = false;
 
-    public void addValid(Predicate predicate) {
+    public final void addValid(Predicate predicate) {
         validList.add(predicate);
 
     }
 
-    public boolean isValid(Object object) {
+    public final boolean isValid(Object object) {
         if (!isRequired && (object == null || object.toString().isEmpty())) {
             return  true;
         } else if (isRequired && (object == null || object.toString().isEmpty())) {
@@ -29,7 +29,7 @@ public class BaseSchema {
         return true;
     }
 
-    public void setRequired(boolean required) {
+    public final void setRequired(boolean required) {
         isRequired = required;
     }
 }
