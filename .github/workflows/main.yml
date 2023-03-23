@@ -11,9 +11,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
       - name: Setup Java JDK
-      - uses: actions/setup-java@v3.10.0
+        uses: actions/setup-java@v2
         with:
           java-version: '17'
           distribution: 'temurin'
@@ -30,4 +30,3 @@ jobs:
         with:
           coverageCommand: make report
           coverageLocations: ${{github.workspace}}/app/build/reports/jacoco/test/jacocoTestReport.xml:jacoco
-
