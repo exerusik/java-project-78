@@ -20,4 +20,9 @@ public class StringSchema extends BaseSchema {
         return this;
 
     }
+    public StringSchema minLength(int length) {
+        Predicate<String> predicate = p -> p.length() >= length;
+        addValid(predicate);
+        return this;
+    }
 }

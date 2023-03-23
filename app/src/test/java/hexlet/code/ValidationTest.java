@@ -14,7 +14,6 @@ class ValidationTest {
     @Test
     void testStringSchema() {
         Validator v = new Validator();
-
         StringSchema schema = v.string();
 
         boolean actual = schema.isValid("");
@@ -25,7 +24,7 @@ class ValidationTest {
         schema.required();
 
         boolean actual2 = schema.isValid("what does the fox say");
-        boolean actual3 = schema.isValid("hexlet");
+        boolean actual3 = schema.minLength(6).isValid("hexlet");
         boolean actual4 = schema.isValid(null);
         boolean actual5 = schema.isValid(5);
         boolean actual6 = schema.isValid("");
