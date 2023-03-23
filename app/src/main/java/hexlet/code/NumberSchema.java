@@ -2,7 +2,7 @@ package hexlet.code;
 
 import java.util.function.Predicate;
 
-public class NumberSchema extends SchemaBase{
+public class NumberSchema extends BaseSchema {
 
     public NumberSchema() {
         addValid(p -> p instanceof Integer);
@@ -15,7 +15,7 @@ public class NumberSchema extends SchemaBase{
 
 
     public NumberSchema positive() {
-        Predicate<Integer> numberPredicate = o -> (o > 0) ;
+        Predicate<Integer> numberPredicate = o -> (o > 0);
         addValid(numberPredicate);
         return this;
     }

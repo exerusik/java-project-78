@@ -3,13 +3,13 @@ package hexlet.code;
 
 import java.util.function.Predicate;
 
-public class StringSchema extends SchemaBase{
+public class StringSchema extends BaseSchema {
 
-    public StringSchema(){
+    public StringSchema() {
         addValid(p -> p instanceof String);
     }
 
-    public StringSchema required () {
+    public StringSchema required() {
         setRequired(true);
         return this;
     }
@@ -20,8 +20,4 @@ public class StringSchema extends SchemaBase{
         return this;
 
     }
-
-
-
-
-    }
+}
