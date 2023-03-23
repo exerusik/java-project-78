@@ -1,2 +1,2 @@
 report:
-	make -C app /.gradlew jacocoTestReport
+	make -C app report
