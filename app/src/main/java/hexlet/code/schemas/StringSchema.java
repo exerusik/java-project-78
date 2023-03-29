@@ -6,7 +6,7 @@ import java.util.function.Predicate;
 public final class StringSchema extends BaseSchema {
 
     public StringSchema() {
-        addValid(p -> p instanceof String);
+        addCheck(p -> p instanceof String);
     }
 
     public StringSchema required() {
@@ -16,13 +16,13 @@ public final class StringSchema extends BaseSchema {
 
     public StringSchema contains(String str) {
         Predicate<String> stringPredicate = p -> p.contains(str);
-        addValid(stringPredicate);
+        addCheck(stringPredicate);
         return this;
 
     }
     public StringSchema minLength(int length) {
         Predicate<String> predicate = p -> p.length() >= length;
-        addValid(predicate);
+        addCheck(predicate);
         return this;
     }
 }

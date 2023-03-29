@@ -6,7 +6,7 @@ import java.util.function.Predicate;
 public final class MapSchema extends BaseSchema {
 
     public MapSchema() {
-        addValid(p -> p instanceof Map);
+        addCheck(p -> p instanceof Map);
 
     }
     public MapSchema required() {
@@ -15,22 +15,22 @@ public final class MapSchema extends BaseSchema {
     }
     public MapSchema sizeof(int size) {
         Predicate<Map> predicate = p -> p.size() == size;
-        addValid(predicate);
+        addCheck(predicate);
         return this;
 
     }
 
     public MapSchema shape(Map<String, BaseSchema> map) {
         Predicate<Map> predicate = p -> checkValid(p, map);
-        addValid(predicate);
+        addCheck(predicate);
         return this;
     }
 
-    private Boolean checkValid(Map<String, String> map, Map<String, BaseSchema> valid) {
-        for (Map.Entry<String, BaseSchema> val : valid.entrySet()) {
+    private Boolean checkValid(Map<String, String> initialMap, Map<String, BaseSchema> validationMap) {
+        for (Map.Entry<String, BaseSchema> val : validationMap.entrySet()) {
             String key = val.getKey();
 
-            if (valid.containsKey(key) && !valid.get(key).isValid(map.get(key))) {
+            if (validationMap.containsKey(key) && !validationMap.get(key).isValid(initialMap.get(key))) {
                 return false;
             }
         }
