@@ -1,4 +1,4 @@
-<a href="https://github.com/exerusik/java-project-78/">Валидатор данных</a>
+Валидатор данных
 
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/exerusik/java-project-78/workflows/hexlet-check/badge.svg)](https://github.com/exerusik/java-project-78/actions)
